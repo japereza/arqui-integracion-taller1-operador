@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <% include partials/head %>
+</head>
+
+<body>
+  <% include partials/menu %>
+
+  <div class="container-fluid bg-3 text-center">
+    <h3><%= page %></h3><br>
+    <h4>Por favor ingrese la informacion del ciudadano</h4><br>
+    <div class="col-sm-6 col-sm-offset-3">
+      <form action="<%= action %>" method="post">
+
+        <% if (fields.length) { %>
+        <% fields.forEach(function(field){ %>
+        <label><%= field.name %></label>
+        <input type="<%= field.type %>" name="<%= field.name %>" <% if (field.property) { %> <%= field.property %>
+          <% } %>><br><br>
+        <% }) %>
+        <% } %>
+
+        <button type="submit"><%= title %></button>
+        <!--Title for button is same as that of the page-->
+      </form>
+    </div>
+  </div>
+
+</body>
+<% include partials/script %>
+
+</html>
